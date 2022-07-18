@@ -1,0 +1,41 @@
+:root {
+    --color-green: #47D68F;
+    --color-green-r: 71;
+    --color-green-g: 214;
+    --color-green-b: 143;
+
+    --color-red: #F95D43;
+    --color-red-r: 249;
+    --color-red-g: 93;
+    --color-red-b: 67;
+
+    --color-blue: #9CBFF2;
+    --color-blue-r: 156;
+    --color-blue-g: 191;
+    --color-blue-b: 242;
+
+    --uiBlack: #2C1E38;
+    --uiBrown: #918B73;
+    --uiYellow: #E2B852;
+    --uiBlue: #9CBFF2;
+    --uiWhite: #ffffff;
+    --uiRed: #F95D43;
+    --uiGreen: #47D68F;
+}
+
+.hl-blue {
+    --highlight: var(--color-blue);
+}
+
+.hl-green {
+    --highlight: var(--color-green);
+}
+
+.hl-red {
+    --highlight: var(--color-red);
+}
+
+.inv {
+    background-color: var(--uiBlack);
+    color: var(--uiWhite);
+}

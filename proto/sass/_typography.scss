@@ -1,0 +1,86 @@
+// @font-face {
+//     font-family: "fontTK";
+//     src: url("../fonts/fontTK.eot");
+//     src: url("../fonts/fontTK.eot?#iefix") format("embedded-opentype"),
+//         url("../fonts/fontTK.woff") format("woff"),
+//         url("../fonts/fontTK.ttf") format("truetype");
+//     font-weight: bold;
+//     font-style: normal
+// }
+
+@font-face {
+    font-family: 'Theinhardt';
+    src: url('../fonts/Theinhardt-Light/Theinhardt-Light.eot');
+    src: url('../fonts/Theinhardt-Light/Theinhardt-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Theinhardt-Light/Theinhardt-Light.woff2') format('woff2'),
+        url('../fonts/Theinhardt-Light/Theinhardt-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Theinhardt';
+    src: url('../fonts/Theinhardt-Light-Italic/Theinhardt-Light-Italic.eot');
+    src: url('../fonts/Theinhardt-Light-Italic/Theinhardt-Light-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Theinhardt-Light-Italic/Theinhardt-Light-Italic.woff2') format('woff2'),
+        url('../fonts/Theinhardt-Light-Italic/Theinhardt-Light-Italic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Theinhardt';
+    src: url('../fonts/Theinhardt-Ultralight/Theinhardt-Ultralight.eot');
+    src: url('../fonts/Theinhardt-Ultralight/Theinhardt-Ultralight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Theinhardt-Ultralight/Theinhardt-Ultralight.woff2') format('woff2'),
+        url('../fonts/Theinhardt-Ultralight/Theinhardt-Ultralight.woff') format('woff');
+    font-weight: 250;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Theinhardt';
+    src: url('../fonts/Theinhardt-Ultralight-Italic/Theinhardt-Ultralight-Italic.eot');
+    src: url('../fonts/Theinhardt-Ultralight-Italic/Theinhardt-Ultralight-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Theinhardt-Ultralight-Italic/Theinhardt-Ultralight-Italic.woff2') format('woff2'),
+        url('../fonts/Theinhardt-Ultralight-Italic/Theinhardt-Ultralight-Italic.woff') format('woff');
+    font-weight: 250;
+    font-style: italic;
+}
+
+@mixin typeFontTK {
+    font-family: "fontTK", serif;
+    font-weight: normal;
+}
+
+@mixin typeBody {
+    font-family: 'Theinhardt', sans-serif;
+    font-size: 24px;
+    line-height: 1.33;
+    font-weight: 300;
+}
+
+@mixin typeXL {
+    font-family: 'Theinhardt', sans-serif;
+    font-size: 68px;
+    line-height: 0.912;
+    font-weight: 250;
+}
+
+/*
+    Theinhardt Light
+    font-size:68px
+    line-height:62
+
+    Theinhardt Light
+    font-size:24px
+    line-height:32px;
+
+    Cardone
+    31/34
+
+*/
+
+.type-xl {
+    @include typeXL;
+}

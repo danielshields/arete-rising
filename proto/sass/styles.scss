@@ -1,0 +1,342 @@
+@import "variables-mixins";
+@import "global";
+@import "typography";
+@import "grid";
+@import "color";
+
+body {
+    @include typeBody;
+}
+
+section {
+    @include padinLR;
+
+    &+* {
+        margin-top: var(--page-margin);
+    }
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    &.inv {
+        padding-top: var(--page-margin);
+        padding-bottom: var(--page-margin);
+    }
+}
+
+h2,
+h3 {
+    @include typeBody;
+    margin: 0;
+
+    small {
+        font-size: 1em;
+        color: var(--uiGray);
+        margin-left: 2rem;
+    }
+}
+
+h2+*:not(.cols) {
+    margin-top: var(--headlineSpace-below);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &.hl-ani {
+        display: inline-block;
+        animation: linkHighlight 1s forwards 1;
+    }
+
+    &.overlink {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        opacity: 0;
+    }
+}
+
+figure {
+    margin: 0;
+}
+
+.bg-hl {
+    background-color: var(--highlight);
+}
+
+
+.home-table {
+    margin-left: calc(-1 * var(--hang-gutter));
+    width: calc(100% + var(--hang-gutter)*2);
+    background-color: var(--bgGray);
+    border: solid 1px;
+    border-color: var(--uiText);
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .cols {
+        display: flex;
+
+        >* {
+            flex-basis: 0;
+            flex-grow: 1;
+            padding: var(--hang-gutter);
+
+            &:not(:last-child) {
+                border-right: solid 1px;
+                border-color: var(--uiText);
+            }
+        }
+    }
+
+    >* {
+        padding: var(--hang-gutter);
+
+        &:not(:last-child) {
+            border-bottom: solid 1px;
+            border-color: var(--uiText);
+        }
+    }
+}
+
+.hov-bg {
+    position: relative;
+
+    &.hovered {
+        background-color: var(--highlight);
+    }
+}
+
+// TODO: Sort appropriately
+.linklist {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        @include typeXL;
+
+        &:not(:first-child) {
+            margin-top: var(--headlineSpace-below);
+        }
+    }
+
+    a {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.1em;
+    }
+}
+
+@import "headerfooter";
+
+
+// TODO: Classify appropriately
+.page-intro {
+    padding-top: 35vh;
+    padding-bottom: var(--gutter);
+
+    h1 {
+        position: relative;
+        grid-column: 1 / 4;
+        width: 100%;
+
+        svg {
+            width: 100%;
+            height: auto;
+            max-width: 185px;
+        }
+
+        span {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    .summary {
+        grid-column: 5/-1;
+        @include typeXL;
+    }
+
+    &+* {
+        margin-top: 0;
+    }
+}
+
+
+.text-over-img-wrap {
+    position: relative;
+    padding: var(--page-margin);
+
+    figure {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background-color: var(--highlight);
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mix-blend-mode: screen;
+            filter: grayscale(1) contrast(1.2);
+        }
+    }
+
+    .text-headline {
+        grid-column: 1/-1;
+        margin: auto auto 0 0;
+
+        h1 {
+            margin: 30vh 0 0;
+        }
+    }
+}
+
+.text-headline,
+.text-headline h1 {
+    @include typeXL;
+}
+
+.text-full {
+    grid-column: 1 / -1;
+}
+
+.text-partial {
+    grid-column: 1 / span 8;
+}
+
+.text-on-bg {
+    padding-top: var(--gutter);
+    padding-bottom: var(--gutter);
+}
+
+.count-list {
+    @include typeXL;
+    list-style-type: none;
+    counter-reset: countlist;
+    padding: 0;
+
+    li {
+        counter-increment: countlist;
+        padding-left: calc(1.5rem + 55px);
+        position: relative;
+        max-width: 25ch;
+
+        &:not(:last-child) {
+            margin-bottom: 0.35em;
+        }
+
+        &:BEFORE {
+            content: counter(countlist);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: solid 1px;
+            text-align: center;
+            @include typeBody;
+            line-height: 55px;
+        }
+    }
+}
+
+.form-el-lg {
+    grid-column: 1 / -1;
+    margin-left: calc(-1* var(--hang-gutter));
+    width: calc(100% + var(--hang-gutter)*2);
+    position: relative;
+
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        border: solid 1px;
+        @include typeXL;
+        text-indent: var(--hang-gutter);
+        padding-top: 0.15em;
+        padding-bottom: 0.15em;
+        border-radius: 80px;
+    }
+
+    input[type="submit"] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100%;
+        opacity: 0;
+    }
+}
+
+.quote {
+    font-style: italic;
+    grid-column: 1 / -1;
+
+    p {
+        @include typeXL;
+        display: inline;
+        margin-right: 1.5rem;
+    }
+}
+
+.component-quote {
+    blockquote {
+        max-width: 60ch;
+        font-style: italic;
+        border-left: solid 1px;
+        padding-left: var(--hang-gutter);
+    }
+}
+
+.cta-download {
+    >a {
+        display: flex;
+        grid-column: span 4;
+        background: var(--bgGray);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+        padding: 1.5rem var(--hang-gutter);
+        border-radius: 8px;
+        justify-content: space-between;
+        align-items: center;
+        border: solid 1px;
+    }
+
+    svg {
+        display: inline-block;
+        width: 62px;
+        height: 76px;
+        vertical-align: middle;
+        margin: 0 1rem 0 auto;
+    }
+}
+
+.attribution {
+    &:BEFORE {
+        content: "— ";
+    }
+}
+
+// @import "components/cards";

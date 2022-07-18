@@ -1,0 +1,64 @@
+:root {
+    --uiText: #000;
+    --uiLine: #000;
+    --uiGray: rgba(0, 0, 0, 0.3);
+    --uiGrayLine: rgba(0, 0, 0, 0.2);
+    --bg: #fff;
+    --bgGray: #EEEEEA;
+    --bgOlive:#A3A28E;
+    --gutter: 64px;
+    --page-margin: 120px;
+    --hang-gutter: 26px;
+    --headlineSpace-below: 1.5rem;
+
+    @media(max-width:1200px) {
+        --page-margin: 80px;
+    }
+}
+
+.inv {
+    --uiText: #fff;
+    --bg: #000;
+    --uiGray: rgba(158, 157, 159, 0.8);
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    flex-direction: column;
+}
+
+html,
+body {
+    min-height: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    &.has-modal,
+    &.menu-on {
+        overflow: hidden;
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.p-lr,
+section:not(.bleed):not(.component-carousel) {
+    @include padinLR;
+}
+
+.blok {
+    display: block;
+}
