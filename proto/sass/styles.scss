@@ -142,6 +142,64 @@ figure {
 
 @import "headerfooter";
 
+.intro-block {
+    a {
+        display: inline-block;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 50%);
+        background-size: 200% auto;
+        animation: linkHighlight 1s forwards 1;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.1em;
+        text-decoration-color: transparent;
+
+        div {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.1em;
+            text-decoration-color: transparent;
+            animation: linkUnderline 1s forwards 1;
+        }
+
+        &:nth-of-type(1),
+        &:nth-of-type(1) div {
+            animation-delay: 3.2s;
+        }
+
+        &:nth-of-type(2),
+        &:nth-of-type(2) div {
+            animation-delay: 3.7s;
+        }
+
+        &:nth-of-type(3),
+        &:nth-of-type(3) div {
+            animation-delay: 4.2s;
+        }
+    }
+}
+
+@keyframes linkHighlight {
+    0% {
+        background-position: -0% 0;
+        text-decoration-color: transparent;
+    }
+
+    100% {
+        // box-shadow: inset 500px 0 0 0 rgba(255, 255, 255, 0.1);
+        background-position: -99.99% 0;
+        text-decoration-color: inherit;
+    }
+}
+
+@keyframes linkUnderline {
+    0% {
+        text-decoration-color: transparent;
+    }
+
+    100% {
+        text-decoration-color: inherit;
+    }
+}
 
 // TODO: Classify appropriately
 .page-intro {

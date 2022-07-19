@@ -28,12 +28,16 @@ kill();
 mySplitText.split({ type: "words" });
 tl.from(mySplitText.words, {
 	duration: 1,
-	// scale: 4,
 	autoAlpha: 0,
-	// rotationX: -180,
-	// transformOrigin: "100% 50%",
 	ease: "back",
 	stagger: 0.15,
+	delay: 0.5,
+	// onUpdate: () => {
+	// 	console.log(tl.progress());
+	// },
+	// onComplete: () => {
+	// 	console.log("done");
+	// },
 });
 
 //revert the text back to its pre-split state
